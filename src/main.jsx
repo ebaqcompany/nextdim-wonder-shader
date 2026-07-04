@@ -4,17 +4,20 @@ import { Duotone, FlutedGlass, ImageTexture, Shader } from "shaders/react";
 import "./styles.css";
 
 const shaderConfig = {
-  "/": {
+  footer: {
     label: "Next Dimension footer Wonder shader",
     textureUrl: "/wonder-texture.png",
   },
-  "/stats19": {
+  stats19: {
     label: "Next Dimension stats Wonder shader",
     textureUrl: "/stats19-texture.png",
   },
 };
 
-const activeShader = shaderConfig[window.location.pathname] ?? shaderConfig["/"];
+const shaderName =
+  new URLSearchParams(window.location.search).get("shader") ??
+  (window.location.pathname === "/stats19" ? "stats19" : "footer");
+const activeShader = shaderConfig[shaderName] ?? shaderConfig.footer;
 
 function WonderShader() {
   return (
