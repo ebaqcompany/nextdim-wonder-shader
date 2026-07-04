@@ -13,7 +13,7 @@ body,
 
 body {
   overflow: hidden;
-  background: transparent;
+  background: #f1f1fd;
 }
 
 .shader-frame {
