@@ -1,6 +1,5 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { motion } from "motion/react";
 import { Duotone, FlutedGlass, ImageTexture, Shader } from "shaders/react";
 import "./styles.css";
 
@@ -50,24 +49,17 @@ function WonderShader() {
 
 function FigmaCardShader() {
   return (
-    <main className="figma-card-shader" aria-label={activeShader.label}>
-      <div className="figma-card-shader__frame">
-        <motion.div
-          className="figma-card-shader__logo"
-          initial={{
-            rotate: -360,
-          }}
-          animate={{
-            rotate: [-360, 0],
-          }}
-          transition={{
-            rotate: { duration: 5, times: [0, 1], ease: "linear", repeat: Infinity },
-          }}
-        >
-          <img src={activeShader.textureUrl} alt="" aria-hidden="true" />
-        </motion.div>
-        <div className="figma-card-shader__pattern" aria-hidden="true" />
-      </div>
+    <main className="card-video-frame" aria-label={activeShader.label}>
+      <video
+        className="card-video-frame__video"
+        src="/BG1.webm"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+      />
     </main>
   );
 }
