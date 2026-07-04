@@ -33,6 +33,22 @@ body {
   display: block;
 }
 
+.card-wonder-frame {
+  position: relative;
+  isolation: isolate;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #c7bcff;
+}
+
+.card-wonder-frame canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
 .card-video-frame {
   position: relative;
   isolation: isolate;

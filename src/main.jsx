@@ -1,6 +1,14 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { Duotone, FlutedGlass, ImageTexture, Shader } from "shaders/react";
+import {
+  ChromaFlow,
+  Duotone,
+  FilmGrain,
+  FlutedGlass,
+  ImageTexture,
+  Shader,
+  Swirl,
+} from "shaders/react";
 import "./styles.css";
 
 const shaderConfig = {
@@ -11,6 +19,9 @@ const shaderConfig = {
   "card-bg1": {
     label: "Next Dimension card background Figma shader",
     textureUrl: "/figma-card-logo.svg",
+  },
+  "card-bg1-wonder": {
+    label: "Next Dimension card one Wonder shader",
   },
   stats19: {
     label: "Next Dimension stats Wonder shader",
@@ -42,6 +53,38 @@ function WonderShader() {
           waveAmplitude={0.5}
           waveFrequency={10}
         />
+      </Shader>
+    </main>
+  );
+}
+
+function WonderCardOneShader() {
+  return (
+    <main className="card-wonder-frame" aria-label={activeShader.label}>
+      <Shader className="shader-canvas" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+        <Swirl colorA="#C7BCFFff" colorB="#f0f0f0" detail={1.7} />
+        <ChromaFlow
+          baseColor="#C7BCFFff"
+          downColor="#FFD8CEff"
+          leftColor="#FFFBE7ff"
+          momentum={13}
+          radius={5}
+          rightColor="#FFFBE7ff"
+          upColor="#FAC5FFff"
+        />
+        <FlutedGlass
+          aberration={0.61}
+          angle={136}
+          frequency={11}
+          highlight={0.12}
+          highlightSoftness={0}
+          lightAngle={-90}
+          refraction={4}
+          shape="rounded"
+          softness={1}
+          speed={0.15}
+        />
+        <FilmGrain strength={0.05} />
       </Shader>
     </main>
   );
@@ -86,5 +129,11 @@ function FigmaCardShader() {
 }
 
 createRoot(document.getElementById("root")).render(
-  shaderName === "card-bg1" ? <FigmaCardShader /> : <WonderShader />,
+  shaderName === "card-bg1" ? (
+    <FigmaCardShader />
+  ) : shaderName === "card-bg1-wonder" ? (
+    <WonderCardOneShader />
+  ) : (
+    <WonderShader />
+  ),
 );
