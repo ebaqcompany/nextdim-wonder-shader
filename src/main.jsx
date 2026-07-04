@@ -43,4 +43,21 @@ function WonderShader() {
   );
 }
 
-createRoot(document.getElementById("root")).render(<WonderShader />);
+function CardBackgroundShader() {
+  return (
+    <main className="card-bg-shader" aria-label="Next Dimension card background shader">
+      <div className="card-bg-orb card-bg-orb-a" />
+      <div className="card-bg-orb card-bg-orb-b" />
+      <div className="card-bg-orb card-bg-orb-c" />
+      <div className="card-bg-orb card-bg-orb-d" />
+      <div className="card-bg-glass" />
+      <div className="card-bg-ridges" />
+      <div className="card-bg-noise" />
+      <div className="card-bg-vignette" />
+    </main>
+  );
+}
+
+const App = shaderName === "card-bg1" ? CardBackgroundShader : WonderShader;
+
+createRoot(document.getElementById("root")).render(<App />);

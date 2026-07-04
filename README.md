@@ -21,6 +21,7 @@ Deploy this repo to Vercel as a Vite app. No environment variables are required.
 
 - `/` renders the footer shader.
 - `/stats19` renders the stats image shader.
+- `/?shader=card-bg1` renders the card background shader used behind the card artwork.
 
 ## Webflow Embed
 

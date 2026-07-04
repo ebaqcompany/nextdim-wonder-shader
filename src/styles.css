@@ -32,3 +32,153 @@ body {
   height: 100% !important;
   display: block;
 }
+
+.card-bg-shader {
+  position: relative;
+  isolation: isolate;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(199, 188, 255, 0.42), transparent 30%),
+    linear-gradient(145deg, #f1f1fd 0%, #c7bcff 34%, #181735 76%);
+}
+
+.card-bg-orb {
+  position: absolute;
+  width: 68vmin;
+  height: 68vmin;
+  border-radius: 999px;
+  filter: blur(4.6vmin);
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  will-change: transform;
+}
+
+.card-bg-orb-a {
+  left: 60%;
+  top: 18%;
+  background: #c7bcff;
+  animation: cardOrbA 5s linear infinite;
+}
+
+.card-bg-orb-b {
+  left: 38%;
+  top: 46%;
+  width: 62vmin;
+  height: 62vmin;
+  background: #fac5ff;
+  animation: cardOrbB 5s linear infinite;
+}
+
+.card-bg-orb-c {
+  left: 80%;
+  top: 82%;
+  background: #ffd8ce;
+  animation: cardOrbC 5s linear infinite;
+}
+
+.card-bg-orb-d {
+  left: 32%;
+  top: -8%;
+  width: 44vmin;
+  height: 44vmin;
+  background: #fffbe7;
+  animation: cardOrbD 5s linear infinite;
+}
+
+.card-bg-glass {
+  position: absolute;
+  inset: -18%;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.46), rgba(24, 23, 53, 0.08) 22%, rgba(24, 23, 53, 0.74) 54%, rgba(255, 255, 255, 0.2)),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.34) 0,
+      rgba(255, 255, 255, 0.34) 1px,
+      rgba(24, 23, 53, 0.18) 5px,
+      rgba(24, 23, 53, 0.18) 11px,
+      rgba(255, 255, 255, 0.16) 16px,
+      rgba(255, 255, 255, 0.16) 23px
+    );
+  filter: contrast(1.18) saturate(1.16);
+  mix-blend-mode: overlay;
+  transform: rotate(0deg) scale(1.14);
+  animation: cardGlass 5s linear infinite;
+}
+
+.card-bg-ridges {
+  position: absolute;
+  inset: -8%;
+  background:
+    repeating-linear-gradient(
+      136deg,
+      rgba(255, 255, 255, 0.08) 0,
+      rgba(255, 255, 255, 0.08) 2px,
+      rgba(24, 23, 53, 0.26) 3px,
+      rgba(24, 23, 53, 0.26) 19px,
+      rgba(255, 255, 255, 0.14) 21px,
+      rgba(255, 255, 255, 0.14) 24px,
+      rgba(24, 23, 53, 0.38) 28px,
+      rgba(24, 23, 53, 0.38) 42px
+    );
+  mix-blend-mode: soft-light;
+  animation: cardRidges 5s linear infinite;
+}
+
+.card-bg-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.17;
+  mix-blend-mode: screen;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.75) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 42% 66%, rgba(255, 255, 255, 0.48) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 74% 32%, rgba(255, 255, 255, 0.62) 0 1px, transparent 1.4px);
+  background-size: 37px 41px, 53px 47px, 71px 67px;
+  animation: cardNoise 5s steps(24) infinite;
+}
+
+.card-bg-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(24, 23, 53, 0) 0%, rgba(24, 23, 53, 0.16) 48%, #181735 100%),
+    radial-gradient(circle at 48% 40%, transparent 0 34%, rgba(24, 23, 53, 0.48) 78%, #181735 100%);
+}
+
+@keyframes cardOrbA {
+  from { transform: translate(-50%, -50%) rotate(0deg) translateX(2%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg) translateX(2%) rotate(-360deg); }
+}
+
+@keyframes cardOrbB {
+  from { transform: translate(-50%, -50%) rotate(0deg) translateY(3%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg) translateY(3%) rotate(360deg); }
+}
+
+@keyframes cardOrbC {
+  from { transform: translate(-50%, -50%) rotate(0deg) translateX(-3%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg) translateX(-3%) rotate(-360deg); }
+}
+
+@keyframes cardOrbD {
+  from { transform: translate(-50%, -50%) rotate(0deg) translateY(-2%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg) translateY(-2%) rotate(360deg); }
+}
+
+@keyframes cardGlass {
+  from { transform: rotate(0deg) scale(1.14); background-position: 0 0, 0 0; }
+  to { transform: rotate(360deg) scale(1.14); background-position: 0 0, 96px 96px; }
+}
+
+@keyframes cardRidges {
+  from { background-position: 0 0; }
+  to { background-position: 128px 128px; }
+}
+
+@keyframes cardNoise {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-37px, -41px, 0); }
+}
