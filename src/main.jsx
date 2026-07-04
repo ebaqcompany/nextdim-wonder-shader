@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { motion } from "motion/react";
 import { Duotone, FlutedGlass, ImageTexture, Shader } from "shaders/react";
 import "./styles.css";
 
@@ -9,8 +10,8 @@ const shaderConfig = {
     textureUrl: "/wonder-texture.png",
   },
   "card-bg1": {
-    label: "Next Dimension card background Wonder shader",
-    textureUrl: "/wonder-texture.png",
+    label: "Next Dimension card background Figma shader",
+    textureUrl: "/figma-card-logo.svg",
   },
   stats19: {
     label: "Next Dimension stats Wonder shader",
@@ -47,4 +48,29 @@ function WonderShader() {
   );
 }
 
-createRoot(document.getElementById("root")).render(<WonderShader />);
+function FigmaCardShader() {
+  return (
+    <main className="figma-card-shader" aria-label={activeShader.label}>
+      <div className="figma-card-shader__frame">
+        <motion.div
+          className="figma-card-shader__logo"
+          initial={{
+            rotate: -360,
+          }}
+          animate={{
+            rotate: [-360, 0],
+          }}
+          transition={{
+            rotate: { duration: 5, times: [0, 1], ease: "linear", repeat: Infinity },
+          }}
+        >
+          <img src={activeShader.textureUrl} alt="" aria-hidden="true" />
+        </motion.div>
+      </div>
+    </main>
+  );
+}
+
+createRoot(document.getElementById("root")).render(
+  shaderName === "card-bg1" ? <FigmaCardShader /> : <WonderShader />,
+);

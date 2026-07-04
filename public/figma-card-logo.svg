@@ -1,0 +1,20 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 771.556 771.556" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="LOGO" filter="url(#filter0_f_0_22)">
+<g clip-path="url(#clip0_0_22)">
+<circle id="Ellipse 5250" cx="366.428" cy="195.005" r="239.957" transform="rotate(135 366.428 195.005)" fill="var(--fill-0, #C7BCFF)"/>
+<circle id="Ellipse 5251" cx="198.632" cy="385.778" r="218.966" transform="rotate(135 198.632 385.778)" fill="var(--fill-0, #FAC5FF)"/>
+<circle id="Ellipse 5253" cx="666.066" cy="628.049" r="228.513" transform="rotate(135 666.066 628.049)" fill="var(--fill-0, #FFD8CE)"/>
+<circle id="Ellipse 5254" cx="383.024" cy="252.328" r="155.955" transform="rotate(26.7368 383.024 252.328)" fill="var(--fill-0, #FFFBE7)"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_0_22" x="0" y="0" width="771.556" height="771.556" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="32.8889" result="effect1_foregroundBlur_0_22"/>
+</filter>
+<clipPath id="clip0_0_22">
+<rect width="640" height="640" fill="white" transform="translate(65.7778 65.7778)"/>
+</clipPath>
+</defs>
+</svg>
