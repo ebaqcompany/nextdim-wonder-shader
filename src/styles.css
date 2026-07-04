@@ -68,3 +68,54 @@ body {
   max-width: none;
   object-fit: fill;
 }
+
+.figma-card-shader__pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.28) 0,
+      rgba(255, 255, 255, 0.28) 1px,
+      rgba(199, 188, 255, 0.18) 2px,
+      rgba(199, 188, 255, 0.18) 6px,
+      rgba(24, 23, 53, 0.08) 7px,
+      rgba(24, 23, 53, 0.08) 10px,
+      rgba(255, 255, 255, 0.18) 11px,
+      rgba(255, 255, 255, 0.18) 16px
+    );
+  filter: blur(0.2px);
+  mix-blend-mode: soft-light;
+  opacity: 0.86;
+}
+
+.figma-card-shader__pattern::before,
+.figma-card-shader__pattern::after {
+  content: "";
+  position: absolute;
+  inset: -2%;
+  pointer-events: none;
+}
+
+.figma-card-shader__pattern::before {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 8px,
+      rgba(255, 255, 255, 0.22) 9px,
+      rgba(255, 255, 255, 0.22) 12px,
+      transparent 17px,
+      transparent 24px
+    );
+  filter: blur(1.2px);
+  opacity: 0.42;
+}
+
+.figma-card-shader__pattern::after {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.26), transparent 14%, transparent 86%, rgba(199, 188, 255, 0.22)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 28%, transparent 72%, rgba(255, 255, 255, 0.14));
+  opacity: 0.58;
+}

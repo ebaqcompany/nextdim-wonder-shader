@@ -66,6 +66,7 @@ function FigmaCardShader() {
         >
           <img src={activeShader.textureUrl} alt="" aria-hidden="true" />
         </motion.div>
+        <div className="figma-card-shader__pattern" aria-hidden="true" />
       </div>
     </main>
   );
