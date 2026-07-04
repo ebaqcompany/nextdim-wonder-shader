@@ -8,6 +8,10 @@ const shaderConfig = {
     label: "Next Dimension footer Wonder shader",
     textureUrl: "/wonder-texture.png",
   },
+  "card-bg1": {
+    label: "Next Dimension card background Wonder shader",
+    textureUrl: "/wonder-texture.png",
+  },
   stats19: {
     label: "Next Dimension stats Wonder shader",
     textureUrl: "/stats19-texture.png",
@@ -43,21 +47,4 @@ function WonderShader() {
   );
 }
 
-function CardBackgroundShader() {
-  return (
-    <main className="card-bg-shader" aria-label="Next Dimension card background shader">
-      <div className="card-bg-orb card-bg-orb-a" />
-      <div className="card-bg-orb card-bg-orb-b" />
-      <div className="card-bg-orb card-bg-orb-c" />
-      <div className="card-bg-orb card-bg-orb-d" />
-      <div className="card-bg-glass" />
-      <div className="card-bg-ridges" />
-      <div className="card-bg-noise" />
-      <div className="card-bg-vignette" />
-    </main>
-  );
-}
-
-const App = shaderName === "card-bg1" ? CardBackgroundShader : WonderShader;
-
-createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(<WonderShader />);
