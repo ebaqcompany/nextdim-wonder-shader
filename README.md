@@ -17,6 +17,11 @@ npm run dev
 
 Deploy this repo to Vercel as a Vite app. No environment variables are required.
 
+## Routes
+
+- `/` renders the footer shader.
+- `/stats19` renders the stats image shader.
+
 ## Webflow Embed
 
 After Vercel deploys, add this inside a Webflow Embed element in the target section:
