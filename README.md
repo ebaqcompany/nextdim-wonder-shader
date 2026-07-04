@@ -2,6 +2,8 @@
 
 Embeddable Vite/React wrapper for the Wonder shader used on the Next Dimension Webflow site.
 
+GitHub repo: https://github.com/ebaqcompany/nextdim-wonder-shader
+
 The Wonder texture is vendored at `public/wonder-texture.png` so the shader does not depend on cross-origin image loading from Wonder's CDN.
 
 ## Local Development
