@@ -52,3 +52,40 @@ body {
   pointer-events: none;
   object-fit: cover;
 }
+
+.card-video-frame__art-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: min(58vw, 58vh, 29.5rem);
+  aspect-ratio: 473 / 499;
+  padding: 3.8%;
+  overflow: hidden;
+  border-radius: clamp(1.5rem, 4vw, 2.5rem);
+  background: #ffffff;
+  transform: translate(-50%, -50%);
+}
+
+.card-video-frame__art {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.card-video-frame__orbit {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: card-orbit-spin 5s linear infinite;
+}
+
+@keyframes card-orbit-spin {
+  from {
+    transform: rotate(-360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
