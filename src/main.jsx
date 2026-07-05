@@ -23,6 +23,9 @@ const shaderConfig = {
   "card-bg1-wonder": {
     label: "Next Dimension card one Wonder shader",
   },
+  hero: {
+    label: "Next Dimension hero Wonder shader",
+  },
   stats19: {
     label: "Next Dimension stats Wonder shader",
     textureUrl: "/stats19-texture.png",
@@ -31,7 +34,11 @@ const shaderConfig = {
 
 const shaderName =
   new URLSearchParams(window.location.search).get("shader") ??
-  (window.location.pathname === "/stats19" ? "stats19" : "footer");
+  (window.location.pathname === "/hero"
+    ? "hero"
+    : window.location.pathname === "/stats19"
+      ? "stats19"
+      : "footer");
 const activeShader = shaderConfig[shaderName] ?? shaderConfig.footer;
 
 function WonderShader() {
@@ -90,6 +97,37 @@ function WonderCardOneShader() {
   );
 }
 
+function HeroShader() {
+  return (
+    <main className="hero-shader-frame" aria-label={activeShader.label}>
+      <Shader className="shader-canvas" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+        <Swirl colorA="#F1F1FDff" colorB="#f0f0f0" detail={1.7} />
+        <ChromaFlow
+          baseColor="#B1A1FFff"
+          downColor="#FECABDff"
+          leftColor="#FFFBE7ff"
+          momentum={13}
+          radius={2}
+          rightColor="#FFFBE7ff"
+          upColor="#FAC5FFff"
+        />
+        <FlutedGlass
+          aberration={0.61}
+          frequency={20}
+          highlight={0.12}
+          highlightSoftness={0}
+          lightAngle={-90}
+          refraction={4}
+          shape="rounded"
+          softness={1}
+          speed={0.15}
+        />
+        <FilmGrain strength={0} />
+      </Shader>
+    </main>
+  );
+}
+
 function FigmaCardShader() {
   return (
     <main className="card-video-frame" aria-label={activeShader.label}>
@@ -133,6 +171,8 @@ createRoot(document.getElementById("root")).render(
     <FigmaCardShader />
   ) : shaderName === "card-bg1-wonder" ? (
     <WonderCardOneShader />
+  ) : shaderName === "hero" ? (
+    <HeroShader />
   ) : (
     <WonderShader />
   ),
