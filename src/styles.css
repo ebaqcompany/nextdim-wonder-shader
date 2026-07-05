@@ -52,13 +52,24 @@ body {
 .hero-shader-frame {
   position: relative;
   isolation: isolate;
-  width: 4000px;
-  height: 2500px;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   background: #f1f1fd;
 }
 
-.hero-shader-frame canvas {
+.hero-shader-surface {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5000px;
+  height: 2500px;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+}
+
+.hero-shader-surface canvas {
   width: 100% !important;
   height: 100% !important;
   display: block;

@@ -98,32 +98,53 @@ function WonderCardOneShader() {
 }
 
 function HeroShader() {
+  const surfaceRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const updateSurfaceScale = () => {
+      const surface = surfaceRef.current;
+      if (!surface) return;
+
+      const scale = Math.max(window.innerWidth / 5000, window.innerHeight / 2500);
+      surface.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    };
+
+    updateSurfaceScale();
+    window.addEventListener("resize", updateSurfaceScale);
+
+    return () => {
+      window.removeEventListener("resize", updateSurfaceScale);
+    };
+  }, []);
+
   return (
     <main className="hero-shader-frame" aria-label={activeShader.label}>
-      <Shader className="shader-canvas" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-        <Swirl colorA="#F1F1FDff" colorB="#f0f0f0" detail={1.7} />
-        <ChromaFlow
-          baseColor="#B1A1FFff"
-          downColor="#FECABDff"
-          leftColor="#FFFBE7ff"
-          momentum={13}
-          radius={2}
-          rightColor="#FFFBE7ff"
-          upColor="#FAC5FFff"
-        />
-        <FlutedGlass
-          aberration={0.61}
-          frequency={20}
-          highlight={0.12}
-          highlightSoftness={0}
-          lightAngle={-90}
-          refraction={4}
-          shape="rounded"
-          softness={1}
-          speed={0.15}
-        />
-        <FilmGrain strength={0} />
-      </Shader>
+      <div className="hero-shader-surface" ref={surfaceRef}>
+        <Shader className="shader-canvas" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+          <Swirl colorA="#F1F1FDff" colorB="#f0f0f0" detail={1.7} />
+          <ChromaFlow
+            baseColor="#B1A1FFff"
+            downColor="#FECABDff"
+            leftColor="#FFFBE7ff"
+            momentum={13}
+            radius={2}
+            rightColor="#FFFBE7ff"
+            upColor="#FAC5FFff"
+          />
+          <FlutedGlass
+            aberration={0.61}
+            frequency={20}
+            highlight={0.12}
+            highlightSoftness={0}
+            lightAngle={-90}
+            refraction={4}
+            shape="rounded"
+            softness={1}
+            speed={0.15}
+          />
+          <FilmGrain strength={0} />
+        </Shader>
+      </div>
     </main>
   );
 }
